@@ -1,0 +1,5 @@
+{
+  "name": "轻序计分",
+  "description": "一款极简的本地计分工具，支持2-6人计分，自动校验总分为0，纯本地存储。",
+  "requestFramePermissions": []
+}

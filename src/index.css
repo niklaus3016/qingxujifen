@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  
+  body {
+    background-color: #F5F5F7;
+    color: #1D1D1F;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior-y: contain;
+  }
+  
+  ::selection {
+    background-color: #dbeafe;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  
+  .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+  .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+  .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.1); border-radius: 10px; }
+  
+  .glass {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(24px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .apple-card {
+    background-color: white;
+    border-radius: 22px;
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    transition: all 300ms;
+  }
+  
+  .apple-button-primary {
+    background-color: #0071E3;
+    color: white;
+    border-radius: 9999px;
+    font-weight: 600;
+    transition: all 200ms;
+  }
+  
+  .apple-button-primary:active {
+    transform: scale(0.97);
+  }
+  
+  .apple-button-primary:hover {
+    background-color: #0077ED;
+  }
+  
+  .apple-button-primary:disabled {
+    opacity: 0.5;
+  }
+  
+  .apple-button-secondary {
+    background-color: #F5F5F7;
+    color: #0071E3;
+    border-radius: 9999px;
+    font-weight: 600;
+    transition: all 200ms;
+  }
+  
+  .apple-button-secondary:active {
+    transform: scale(0.97);
+  }
+  
+  .apple-button-secondary:hover {
+    background-color: #E8E8ED;
+  }
+  
+  .hardware-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+}

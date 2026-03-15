@@ -22,12 +22,6 @@ allprojects {
         google()
         mavenCentral()
     }
-    
-    // Override Java version for all modules
-    tasks.withType(JavaCompile) {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
 }
 
 task clean(type: Delete) {

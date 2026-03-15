@@ -1,0 +1,10 @@
+# Android
+/build/
+.idea/
+.gradle/
+local.properties
+*.iml
+*.hprof
+
+# Capacitor
+capacitor-cordova-android-plugins/

@@ -41,20 +41,24 @@ jobs:
       run: |
         echo "# 将 base64 编码的 keystore 还原为文件"
         echo ""
+        echo "===== 证书指纹 ====="
+        keytool -list -v -keystore android/my-release-key.keystore -alias qingxujifen -storepass 123456 | grep -E "(MD5|SHA1|SHA256):"
+        echo "===================="
+        echo ""
         echo "===== MD5 指纹 ====="
-        keytool -list -v -keystore android/my-release-key.keystore -alias qingxujifen -storepass 123456 | grep "MD5:" | awk '{print $2}'
+        keytool -list -v -keystore android/my-release-key.keystore -alias qingxujifen -storepass 123456 | grep "MD5:" | sed 's/.*MD5: //'
         echo "===================="
         echo ""
         echo "===== SHA1 指纹（小米应用商店用）====="
-        keytool -list -v -keystore android/my-release-key.keystore -alias qingxujifen -storepass 123456 | grep "SHA1:" | awk '{print $2}'
+        keytool -list -v -keystore android/my-release-key.keystore -alias qingxujifen -storepass 123456 | grep "SHA1:" | sed 's/.*SHA1: //'
         echo "======================================"
         echo ""
         echo "===== 去掉冒号的 SHA1（直接复制）====="
-        keytool -list -v -keystore android/my-release-key.keystore -alias qingxujifen -storepass 123456 | grep "SHA1:" | awk '{print $2}' | tr -d ':'
+        keytool -list -v -keystore android/my-release-key.keystore -alias qingxujifen -storepass 123456 | grep "SHA1:" | sed 's/.*SHA1: //' | tr -d ':'
         echo "======================================"
         echo ""
-        echo "===== 公钥（Public Key）====="
-        keytool -list -v -keystore android/my-release-key.keystore -alias qingxujifen -storepass 123456 | grep -A 1 "Subject Public Key Algorithm:" | tail -1
+        echo "===== 公钥信息 ====="
+        keytool -list -v -keystore android/my-release-key.keystore -alias qingxujifen -storepass 123456 | grep -A 3 "Certificate fingerprints:"
         echo "============================="
     
     - name: Make gradlew executable

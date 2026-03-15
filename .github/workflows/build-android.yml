@@ -37,15 +37,25 @@ jobs:
       run: |
         echo "${{ secrets.KEYSTORE_FILE }}" | base64 -d > android/my-release-key.keystore
     
-    - name: Extract SHA1 from keystore
+    - name: Extract fingerprints from keystore
       run: |
         echo "# 将 base64 编码的 keystore 还原为文件"
+        echo ""
+        echo "===== MD5 指纹 ====="
+        keytool -list -v -keystore android/my-release-key.keystore -alias qingxujifen -storepass 123456 | grep "MD5:" | awk '{print $2}'
+        echo "===================="
+        echo ""
         echo "===== SHA1 指纹（小米应用商店用）====="
         keytool -list -v -keystore android/my-release-key.keystore -alias qingxujifen -storepass 123456 | grep "SHA1:" | awk '{print $2}'
         echo "======================================"
+        echo ""
         echo "===== 去掉冒号的 SHA1（直接复制）====="
         keytool -list -v -keystore android/my-release-key.keystore -alias qingxujifen -storepass 123456 | grep "SHA1:" | awk '{print $2}' | tr -d ':'
         echo "======================================"
+        echo ""
+        echo "===== 公钥（Public Key）====="
+        keytool -list -v -keystore android/my-release-key.keystore -alias qingxujifen -storepass 123456 | grep -A 1 "Subject Public Key Algorithm:" | tail -1
+        echo "============================="
     
     - name: Make gradlew executable
       run: chmod +x ./android/gradlew

@@ -33,6 +33,20 @@ jobs:
     - name: Set up Android SDK
       uses: android-actions/setup-android@v3
     
+    - name: Decode keystore
+      run: |
+        echo "${{ secrets.KEYSTORE_FILE }}" | base64 -d > android/my-release-key.keystore
+    
+    - name: Extract SHA1 from keystore
+      run: |
+        echo "# 将 base64 编码的 keystore 还原为文件"
+        echo "===== SHA1 指纹（小米应用商店用）====="
+        keytool -list -v -keystore android/my-release-key.keystore -alias qingxujifen -storepass 123456 | grep "SHA1:" | awk '{print $2}'
+        echo "======================================"
+        echo "===== 去掉冒号的 SHA1（直接复制）====="
+        keytool -list -v -keystore android/my-release-key.keystore -alias qingxujifen -storepass 123456 | grep "SHA1:" | awk '{print $2}' | tr -d ':'
+        echo "======================================"
+    
     - name: Make gradlew executable
       run: chmod +x ./android/gradlew
     

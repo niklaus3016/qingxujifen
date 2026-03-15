@@ -19,13 +19,13 @@ android {
     
     // 添加签名配置
     signingConfigs {
-        release {
-            storeFile file('my-release-key.keystore')
-            storePassword '123456'
-            keyAlias 'qingxujifen'
-            keyPassword '123456'
+            release {
+                storeFile file('../my-release-key.keystore')
+                storePassword '123456'
+                keyAlias 'qingxujifen'
+                keyPassword '123456'
+            }
         }
-    }
     
     buildTypes { 
         release { 

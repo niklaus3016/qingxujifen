@@ -89,7 +89,7 @@ const PrivacyModal = ({ onAccept, onDecline, showAgreementModal, onOpenAgreement
   </div>
 );
 
-const AgreementModal = ({ onClose, title, htmlFile }: { onClose: () => void, title: string, htmlFile: string }) => (
+const AgreementModal = ({ onClose, title, content }: { onClose: () => void, title: string, content: React.ReactNode }) => (
   <div className="fixed inset-0 bg-black/40 backdrop-blur-md flex items-center justify-center p-4 z-110">
     <motion.div 
       initial={{ scale: 0.95, opacity: 0 }}
@@ -111,14 +111,114 @@ const AgreementModal = ({ onClose, title, htmlFile }: { onClose: () => void, tit
           <X size={20} />
         </button>
       </div>
-      <div className="flex-1 overflow-hidden bg-[#F5F5F7]">
-        <iframe 
-          src={`/${htmlFile}`} 
-          className="w-full h-full border-0"
-          title={title}
-        />
+      <div className="flex-1 overflow-y-auto bg-[#F5F5F7] p-6">
+        {content}
       </div>
     </motion.div>
+  </div>
+);
+
+const PrivacyPolicyContent = () => (
+  <div className="prose max-w-none">
+    <h1 className="text-2xl font-bold text-[#0071E3] text-center mb-4">隐私政策</h1>
+    <p className="text-center text-gray-500 mb-8">更新日期：2024年12月21日</p>
+    
+    <h2 className="text-xl font-semibold mt-8 mb-4">1. 隐私政策的适用范围</h2>
+    <p>本隐私政策适用于「轻序计分」应用（以下简称「本应用」）。</p>
+    <p>本政策描述了我们如何收集、使用、存储和保护您的个人信息，以及您如何管理这些信息。</p>
+    
+    <h2 className="text-xl font-semibold mt-8 mb-4">2. 我们收集的信息</h2>
+    <p>在您使用本应用的过程中，我们可能会收集以下信息：</p>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>设备信息：包括设备型号、操作系统版本、设备标识符等。</li>
+      <li>使用信息：包括应用的使用方式、功能使用频率、崩溃日志等。</li>
+      <li>存储数据：包括您在应用中创建的游戏记录、计分数据等。</li>
+    </ul>
+    
+    <h2 className="text-xl font-semibold mt-8 mb-4">3. 信息的使用</h2>
+    <p>我们收集的信息将用于以下目的：</p>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>提供和维护应用功能</li>
+      <li>改进应用性能和用户体验</li>
+      <li>解决应用问题和故障</li>
+      <li>遵守法律法规要求</li>
+    </ul>
+    
+    <h2 className="text-xl font-semibold mt-8 mb-4">4. 信息的存储</h2>
+    <p>我们收集的信息将存储在您的设备本地，不会上传到我们的服务器。您可以随时清除应用数据来删除这些信息。</p>
+    
+    <h2 className="text-xl font-semibold mt-8 mb-4">5. 信息的共享</h2>
+    <p>我们不会向任何第三方共享您的个人信息，除非：</p>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>获得您的明确授权</li>
+      <li>遵守法律法规要求</li>
+      <li>保护我们的合法权益</li>
+    </ul>
+    
+    <h2 className="text-xl font-semibold mt-8 mb-4">6. 您的权利</h2>
+    <p>您有权：</p>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>访问和查看您的个人信息</li>
+      <li>要求我们删除您的个人信息</li>
+      <li>拒绝我们收集和使用您的个人信息</li>
+    </ul>
+    
+    <h2 className="text-xl font-semibold mt-8 mb-4">7. 隐私政策的变更</h2>
+    <p>我们可能会不时更新本隐私政策。当我们进行重大变更时，会在应用中通知您。</p>
+    
+    <h2 className="text-xl font-semibold mt-8 mb-4">8. 联系我们</h2>
+    <p>如果您对本隐私政策有任何疑问，请通过以下方式联系我们：</p>
+    <p>电子邮件：contact@qingxujifen.com</p>
+  </div>
+);
+
+const UserAgreementContent = () => (
+  <div className="prose max-w-none">
+    <h1 className="text-2xl font-bold text-[#0071E3] text-center mb-4">用户服务协议</h1>
+    <p className="text-center text-gray-500 mb-8">更新日期：2024年12月21日</p>
+    
+    <h2 className="text-xl font-semibold mt-8 mb-4">1. 协议的接受</h2>
+    <p>欢迎使用「轻序计分」应用（以下简称「本应用」）。</p>
+    <p>本协议是您与光年跃迁（温州）科技有限公司（以下简称「我们」）之间关于使用本应用的法律协议。</p>
+    <p>通过下载、安装或使用本应用，您表示同意接受本协议的全部条款和条件。</p>
+    
+    <h2 className="text-xl font-semibold mt-8 mb-4">2. 服务内容</h2>
+    <p>本应用提供以下服务：</p>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>创建和管理计分游戏</li>
+      <li>记录和计算游戏分数</li>
+      <li>查看游戏历史记录</li>
+    </ul>
+    
+    <h2 className="text-xl font-semibold mt-8 mb-4">3. 用户义务</h2>
+    <p>作为本应用的用户，您同意：</p>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>遵守本协议的所有条款</li>
+      <li>不使用本应用进行任何非法活动</li>
+      <li>不干扰本应用的正常运行</li>
+      <li>保护您的设备安全，防止未授权访问</li>
+    </ul>
+    
+    <h2 className="text-xl font-semibold mt-8 mb-4">4. 知识产权</h2>
+    <p>本应用的所有内容，包括但不限于文字、图像、音频、视频、软件等，均受知识产权法律保护。</p>
+    <p>未经我们的书面许可，您不得复制、修改、分发或商业使用本应用的任何内容。</p>
+    
+    <h2 className="text-xl font-semibold mt-8 mb-4">5. 免责声明</h2>
+    <p>本应用按「原样」提供，不做任何形式的保证。</p>
+    <p>我们不保证：</p>
+    <ul className="list-disc pl-6 space-y-2">
+      <li>本应用将符合您的要求</li>
+      <li>本应用将无中断、及时、安全或无错误地运行</li>
+      <li>本应用的使用结果将是准确或可靠的</li>
+    </ul>
+    
+    <h2 className="text-xl font-semibold mt-8 mb-4">6. 终止</h2>
+    <p>我们有权在任何时候，出于任何原因，终止或暂停您对本应用的访问。</p>
+    <p>您也可以随时停止使用本应用。</p>
+    
+    <h2 className="text-xl font-semibold mt-8 mb-4">7. 适用法律</h2>
+    <p>本协议受中华人民共和国法律管辖。</p>
+    <p>任何与本协议相关的争议，应通过友好协商解决；协商不成的，应提交至温州市有管辖权的人民法院诉讼解决。</p>
   </div>
 );
 
@@ -144,16 +244,8 @@ const PrivacyPolicyModal = ({ onClose }: { onClose: () => void }) => (
           <X size={20} />
         </button>
       </div>
-      <div className="flex-1 overflow-hidden bg-[#F5F5F7]">
-        <iframe 
-          src="/privacy-policy.html" 
-          className="w-full h-full border-0"
-          title="隐私政策"
-          style={{ 
-            scrollbarWidth: 'thin',
-            scrollbarColor: '#C1C1C6 #F5F5F7'
-          }}
-        />
+      <div className="flex-1 overflow-y-auto bg-[#F5F5F7] p-6">
+        <PrivacyPolicyContent />
       </div>
     </motion.div>
   </div>
@@ -291,14 +383,14 @@ export default function App() {
         <AgreementModal 
           onClose={handleCloseAgreement}
           title="用户服务协议"
-          htmlFile="user-agreement.html"
+          content={<UserAgreementContent />}
         />
       )}
       {showAgreementModal === 'privacy-policy' && (
         <AgreementModal 
           onClose={handleCloseAgreement}
           title="隐私政策"
-          htmlFile="privacy-policy.html"
+          content={<PrivacyPolicyContent />}
         />
       )}
     </>

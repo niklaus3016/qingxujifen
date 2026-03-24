@@ -399,7 +399,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#F5F5F7] flex flex-col font-sans text-[#1D1D1F] select-none">
       {/* Header */}
-      <header className="glass px-6 py-5 sticky top-0 z-30">
+      <header className="glass px-6 py-8 pt-12 sticky top-0 z-30">
         <div className="max-w-md mx-auto flex items-center justify-between">
           <div className="flex items-center gap-2.5">
             <div className="w-9 h-9 bg-linear-to-br from-[#0071E3] to-[#00C7FF] rounded-[10px] flex items-center justify-center shadow-sm">

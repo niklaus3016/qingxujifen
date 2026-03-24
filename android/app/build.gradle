@@ -1,5 +1,28 @@
 apply plugin: 'com.android.application'
 
+// 删除自适应图标配置文件
+task deleteAdaptiveIconConfigs {
+    doLast {
+        def filesToDelete = [
+            'src/main/res/drawable/ic_launcher_background.xml',
+            'src/main/res/drawable-v24/ic_launcher_foreground.xml',
+            'src/main/res/mipmap-anydpi-v26/ic_launcher.xml',
+            'src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml'
+        ]
+        
+        filesToDelete.each { file ->
+            def fileObj = file(file)
+            if (fileObj.exists()) {
+                fileObj.delete()
+                println "Deleted: $file"
+            }
+        }
+    }
+}
+
+// 在构建前执行删除任务
+preBuild.dependsOn deleteAdaptiveIconConfigs
+
 android { 
     namespace = "com.qingxujifen.app" 
     compileSdk = rootProject.ext.compileSdkVersion 
@@ -25,7 +48,7 @@ android {
                 keyAlias 'qingxujifen'
                 keyPassword '123456'
             }
-        }
+        } 
     
     buildTypes { 
         release { 

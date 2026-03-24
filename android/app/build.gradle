@@ -10,11 +10,11 @@ task deleteAdaptiveIconConfigs {
             'src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml'
         ]
         
-        filesToDelete.each { file ->
-            def fileObj = file(file)
+        filesToDelete.each { filePath ->
+            def fileObj = file(filePath)
             if (fileObj.exists()) {
                 fileObj.delete()
-                println "Deleted: $file"
+                println "Deleted: $filePath"
             }
         }
     }

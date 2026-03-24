@@ -89,7 +89,7 @@ const PrivacyModal = ({ onAccept, onDecline, showAgreementModal, onOpenAgreement
   </div>
 );
 
-const AgreementModal = ({ onClose, title, content }: { onClose: () => void, title: string, content: React.ReactNode }) => (
+const AgreementModal = ({ onClose, title, content }: { onClose: () => void, title: string, content: any }) => (
   <div className="fixed inset-0 bg-black/40 backdrop-blur-md flex items-center justify-center p-4 z-110">
     <motion.div 
       initial={{ scale: 0.95, opacity: 0 }}

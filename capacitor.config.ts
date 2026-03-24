@@ -3,7 +3,10 @@ import type { CapacitorConfig } from '@capacitor/cli';
 const config: CapacitorConfig = {
   appId: 'com.qingxujifen.app',
   appName: '轻序计分',
-  webDir: 'dist'
+  webDir: 'dist',
+  android: {
+    icon: 'qxjficon1.png'
+  }
 };
 
 export default config;

@@ -119,56 +119,70 @@ const AgreementModal = ({ onClose, title, content }: { onClose: () => void, titl
 );
 
 const PrivacyPolicyContent = () => (
-  <div className="prose max-w-none">
-    <h1 className="text-2xl font-bold text-[#0071E3] text-center mb-4">隐私政策</h1>
-    <p className="text-center text-gray-500 mb-8">更新日期：2026年3月20日</p>
-    
-    <h2 className="text-xl font-semibold mt-8 mb-4">1. 隐私政策的适用范围</h2>
-    <p>本隐私政策适用于「轻序计分」应用（以下简称「本应用」）。</p>
-    <p>本政策描述了我们如何收集、使用、存储和保护您的个人信息，以及您如何管理这些信息。</p>
-    
-    <h2 className="text-xl font-semibold mt-8 mb-4">2. 我们收集的信息</h2>
-    <p>在您使用本应用的过程中，我们可能会收集以下信息：</p>
-    <ul className="list-disc pl-6 space-y-2">
-      <li>设备信息：包括设备型号、操作系统版本、设备标识符等。</li>
-      <li>使用信息：包括应用的使用方式、功能使用频率、崩溃日志等。</li>
-      <li>存储数据：包括您在应用中创建的游戏记录、计分数据等。</li>
-    </ul>
-    
-    <h2 className="text-xl font-semibold mt-8 mb-4">3. 信息的使用</h2>
-    <p>我们收集的信息将用于以下目的：</p>
-    <ul className="list-disc pl-6 space-y-2">
-      <li>提供和维护应用功能</li>
-      <li>改进应用性能和用户体验</li>
-      <li>解决应用问题和故障</li>
-      <li>遵守法律法规要求</li>
-    </ul>
-    
-    <h2 className="text-xl font-semibold mt-8 mb-4">4. 信息的存储</h2>
-    <p>我们收集的信息将存储在您的设备本地，不会上传到我们的服务器。您可以随时清除应用数据来删除这些信息。</p>
-    
-    <h2 className="text-xl font-semibold mt-8 mb-4">5. 信息的共享</h2>
-    <p>我们不会向任何第三方共享您的个人信息，除非：</p>
-    <ul className="list-disc pl-6 space-y-2">
-      <li>获得您的明确授权</li>
-      <li>遵守法律法规要求</li>
-      <li>保护我们的合法权益</li>
-    </ul>
-    
-    <h2 className="text-xl font-semibold mt-8 mb-4">6. 您的权利</h2>
-    <p>您有权：</p>
-    <ul className="list-disc pl-6 space-y-2">
-      <li>访问和查看您的个人信息</li>
-      <li>要求我们删除您的个人信息</li>
-      <li>拒绝我们收集和使用您的个人信息</li>
-    </ul>
-    
-    <h2 className="text-xl font-semibold mt-8 mb-4">7. 隐私政策的变更</h2>
-    <p>我们可能会不时更新本隐私政策。当我们进行重大变更时，会在应用中通知您。</p>
-    
-    <h2 className="text-xl font-semibold mt-8 mb-4">8. 联系我们</h2>
-    <p>如果您对本隐私政策有任何疑问，请通过以下方式联系我们：</p>
-    <p>电子邮件：Jp182022@163.com</p>
+  <div className="max-w-none">
+    <h1 className="text-2xl font-bold text-[#0071E3] text-center mb-2">🔒 隐私政策</h1>
+    <p className="text-center text-gray-500 mb-6"><strong>生效日期</strong>：2026年03月15日</p>
+
+    <div className="bg-gradient-to-r from-blue-50 to-blue-100 p-6 rounded-lg border-l-4 border-[#0071E3] mb-6">
+      <p className="text-gray-700">欢迎使用「轻序计分」（以下简称"本应用"）。本应用由<strong>光年跃迁（温州）科技有限公司</strong>（以下简称"我们"）开发并运营。我们深知个人信息对您的重要性，将严格遵守《中华人民共和国个人信息保护法》等相关法律法规，保护您的个人信息安全。</p>
+    </div>
+
+    <p className="mb-6 text-gray-700">本隐私政策旨在说明我们如何收集、使用、存储和保护您在使用本应用过程中提供的个人信息，以及您对这些信息所享有的权利。请您在使用本应用前仔细阅读并充分理解本政策的全部内容，尤其是加粗的条款。如您对本政策有任何疑问、意见或建议，可通过本政策末尾提供的联系方式与我们联系。</p>
+
+    <h2 className="text-xl font-semibold mt-8 mb-4 border-b-2 border-gray-200 pb-2">一、我们收集的信息</h2>
+    <p className="mb-4 text-gray-700">在您使用本应用的过程中，我们会收集以下信息，以提供、维护和改进我们的服务：</p>
+    <ol className="list-decimal pl-6 mb-6">
+      <li className="mb-3 text-gray-700"><strong>计分数据</strong>：您在使用本应用过程中主动录入的所有<strong>对局信息、玩家姓名、各轮次分数及相关计分数据</strong>。这些数据是本应用的核心功能内容，用于为您提供多人计分、分数统计和历史记录服务。</li>
+      <li className="mb-3 text-gray-700"><strong>设备信息</strong>：为了保障应用的稳定运行和优化用户体验，我们会自动收集您的设备相关信息，包括但不限于<strong>设备型号、操作系统版本、设备标识符（如IMEI/Android ID）、IP地址</strong>等。</li>
+    </ol>
+
+    <h2 className="text-xl font-semibold mt-8 mb-4 border-b-2 border-gray-200 pb-2">二、我们如何使用收集的信息</h2>
+    <p className="mb-4 text-gray-700">我们仅会在以下合法、正当、必要的范围内使用您的个人信息：</p>
+    <ol className="list-decimal pl-6 mb-6">
+      <li className="mb-3 text-gray-700"><strong>提供和改进服务</strong>：使用您的计分数据来实现多人计分、分数统计、历史记录等核心功能；通过分析设备信息和使用数据，优化应用性能，修复已知问题，提升用户体验。</li>
+      <li className="mb-3 text-gray-700"><strong>数据分析和统计</strong>：在对您的个人信息进行匿名化或去标识化处理后，进行内部数据分析和统计，以了解用户群体的使用习惯和需求，从而更好地规划和改进产品功能。</li>
+    </ol>
+
+    <h2 className="text-xl font-semibold mt-8 mb-4 border-b-2 border-gray-200 pb-2">三、我们如何共享、转让和公开披露信息</h2>
+    <p className="mb-4 text-gray-700">我们郑重承诺，严格保护您的个人信息，不会在以下情形之外向任何第三方共享、转让或公开披露您的信息：</p>
+    <ol className="list-decimal pl-6 mb-6">
+      <li className="mb-3 text-gray-700"><strong>法定情形</strong>：根据法律法规的规定、行政或司法机关的强制性要求，我们可能会向有关部门披露您的相关信息。</li>
+      <li className="mb-3 text-gray-700"><strong>获得明确同意</strong>：在获得您的明确书面同意后，我们才会向第三方共享您的个人信息。</li>
+      <li className="mb-3 text-gray-700"><strong>业务必要且合规</strong>：为了实现本政策第二条所述的目的，我们可能会与提供技术支持、支付服务或其他必要服务的合作伙伴共享必要的信息，但我们会要求其严格遵守本政策及相关法律法规，并对您的信息承担保密义务。</li>
+    </ol>
+
+    <h2 className="text-xl font-semibold mt-8 mb-4 border-b-2 border-gray-200 pb-2">四、我们如何存储和保护信息</h2>
+    <ol className="list-decimal pl-6 mb-6">
+      <li className="mb-3 text-gray-700"><strong>存储地点和期限</strong>：您的个人信息将存储于中华人民共和国境内的安全服务器上。我们会在实现本政策所述目的所必需的最短时间内保留您的信息，超出此期限后，我们将对您的信息进行删除或匿名化处理。</li>
+      <li className="mb-3 text-gray-700"><strong>安全措施</strong>：我们采用符合行业标准的技术手段和安全管理措施来保护您的个人信息，包括但不限于数据加密、访问控制、安全审计等，以防止信息泄露、丢失、篡改或被未经授权的访问。</li>
+    </ol>
+
+    <h2 className="text-xl font-semibold mt-8 mb-4 border-b-2 border-gray-200 pb-2">五、您的权利</h2>
+    <p className="mb-4 text-gray-700">根据相关法律法规，您对您的个人信息享有以下权利：</p>
+    <ol className="list-decimal pl-6 mb-6">
+      <li className="mb-3 text-gray-700"><strong>访问权</strong>：您可以随时在本应用中查看和管理您的计分数据及历史记录。</li>
+      <li className="mb-3 text-gray-700"><strong>更正权</strong>：如您发现您的计分数据存在错误，您可以在应用内进行修改和更正。</li>
+      <li className="mb-3 text-gray-700"><strong>删除权</strong>：您可以随时删除单条计分记录或整个对局记录，应用将立即删除相关数据。</li>
+      <li className="mb-3 text-gray-700"><strong>数据导出</strong>：本应用所有数据存储在您的设备本地，您可以通过设备备份等方式导出您的数据。</li>
+    </ol>
+
+    <h2 className="text-xl font-semibold mt-8 mb-4 border-b-2 border-gray-200 pb-2">六、未成年人保护</h2>
+    <p className="mb-6 text-gray-700">我们非常重视对未成年人个人信息的保护。如您是未满14周岁的未成年人，在使用本应用前，应在监护人的指导下仔细阅读本政策，并征得监护人的同意。如我们发现自己在未事先获得监护人可验证同意的情况下收集了未成年人的个人信息，将立即删除相关数据。</p>
+
+    <h2 className="text-xl font-semibold mt-8 mb-4 border-b-2 border-gray-200 pb-2">七、本政策的更新</h2>
+    <p className="mb-6 text-gray-700">我们可能会根据法律法规的更新、业务的调整或技术的发展，适时对本隐私政策进行修订。修订后的政策将在本应用内显著位置公示，并在生效前通过合理方式通知您。如您继续使用本应用，即表示您同意接受修订后的政策。</p>
+
+    <h2 className="text-xl font-semibold mt-8 mb-4 border-b-2 border-gray-200 pb-2">八、联系我们</h2>
+    <p className="mb-4 text-gray-700">如您对本隐私政策有任何疑问、意见或建议，或需要行使您的相关权利，请通过以下方式与我们联系：</p>
+    <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 mb-6">
+      <p className="mb-2 text-gray-700"><strong>电子邮箱</strong>：Jp112022@163.com</p>
+    </div>
+
+    <div className="mt-8 pt-6 border-t border-gray-200 text-center">
+      <p className="mb-2 text-gray-500">感谢您使用轻序计分！</p>
+      <p className="mb-4 text-gray-500">我们致力于为您提供安全、便捷的计分服务。</p>
+      <p className="text-sm text-gray-400">© 2026 光年跃迁（温州）科技有限公司 版权所有</p>
+    </div>
   </div>
 );
 

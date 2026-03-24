@@ -121,7 +121,7 @@ const AgreementModal = ({ onClose, title, content }: { onClose: () => void, titl
 const PrivacyPolicyContent = () => (
   <div className="prose max-w-none">
     <h1 className="text-2xl font-bold text-[#0071E3] text-center mb-4">隐私政策</h1>
-    <p className="text-center text-gray-500 mb-8">更新日期：2024年12月21日</p>
+    <p className="text-center text-gray-500 mb-8">更新日期：2026年3月20日</p>
     
     <h2 className="text-xl font-semibold mt-8 mb-4">1. 隐私政策的适用范围</h2>
     <p>本隐私政策适用于「轻序计分」应用（以下简称「本应用」）。</p>
@@ -168,14 +168,14 @@ const PrivacyPolicyContent = () => (
     
     <h2 className="text-xl font-semibold mt-8 mb-4">8. 联系我们</h2>
     <p>如果您对本隐私政策有任何疑问，请通过以下方式联系我们：</p>
-    <p>电子邮件：contact@qingxujifen.com</p>
+    <p>电子邮件：Jp182022@163.com</p>
   </div>
 );
 
 const UserAgreementContent = () => (
   <div className="prose max-w-none">
     <h1 className="text-2xl font-bold text-[#0071E3] text-center mb-4">用户服务协议</h1>
-    <p className="text-center text-gray-500 mb-8">更新日期：2024年12月21日</p>
+    <p className="text-center text-gray-500 mb-8">更新日期：2026年3月20日</p>
     
     <h2 className="text-xl font-semibold mt-8 mb-4">1. 协议的接受</h2>
     <p>欢迎使用「轻序计分」应用（以下简称「本应用」）。</p>
@@ -313,10 +313,19 @@ export default function App() {
     setAppState('MAIN');
   }, []);
 
+  const [showDeclineModal, setShowDeclineModal] = useState(false);
+
   const handleDeclinePrivacy = useCallback(() => {
-    if (window.confirm('您确定要拒绝隐私政策吗？拒绝后将无法使用我们的服务。')) {
-      alert('由于您拒绝了隐私政策，我们无法为您提供服务。');
-    }
+    setShowDeclineModal(true);
+  }, []);
+
+  const handleDeclineConfirm = useCallback(() => {
+    setShowDeclineModal(false);
+    alert('由于您拒绝了隐私政策，我们无法为您提供服务。');
+  }, []);
+
+  const handleDeclineCancel = useCallback(() => {
+    setShowDeclineModal(false);
   }, []);
 
   const handleOpenAgreement = useCallback(() => {
@@ -392,6 +401,37 @@ export default function App() {
           title="隐私政策"
           content={<PrivacyPolicyContent />}
         />
+      )}
+
+      {showDeclineModal && (
+        <div className="fixed inset-0 bg-black/40 backdrop-blur-md flex items-center justify-center p-4 z-110">
+          <motion.div 
+            initial={{ scale: 0.95, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.95, opacity: 0 }}
+            className="bg-white rounded-[28px] w-full max-w-md overflow-hidden shadow-2xl border border-black/5 flex flex-col"
+          >
+            <div className="flex-1 p-6">
+              <h2 className="text-xl font-bold text-[#1D1D1F] mb-4">确认拒绝</h2>
+              <p className="text-gray-600 mb-6">您确定要拒绝隐私政策吗？拒绝后将无法使用我们的服务。</p>
+            </div>
+            <div className="flex border-t border-black/5">
+              <button 
+                onClick={handleDeclineCancel}
+                className="flex-1 py-4 text-center text-gray-600 font-medium hover:bg-gray-50"
+              >
+                取消
+              </button>
+              <div className="w-px bg-black/5"></div>
+              <button 
+                onClick={handleDeclineConfirm}
+                className="flex-1 py-4 text-center text-[#0071E3] font-medium hover:bg-gray-50"
+              >
+                确定
+              </button>
+            </div>
+          </motion.div>
+        </div>
       )}
     </>
   );
